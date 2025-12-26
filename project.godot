@@ -14,3 +14,8 @@ config/name="MelonJam-25"
 run/main_scene="uid://da64e61xoc4na"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
