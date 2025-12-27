@@ -6,7 +6,6 @@ var gravity: float = 9.8
 @export var speed: float = 20.0
 @export var accel: float = 2.0
 
-@onready var weapon_anim_plr: AnimationPlayer = $WeaponPivot/WeaponAnimPlayer
 
 func _ready() -> void:
 	Global.player = self
@@ -45,10 +44,17 @@ func player_look_at_cursor() -> void:
 		var pos = intersection.position
 		look_at(Vector3(pos.x, 0, pos.z)) #Player looks at ray intersection
 	
-	rotation.x = 0 #Reset the player's rotation to keep him vertical
+	rotation.x = 0 #Reset the player's rotation to stay vertical
 	rotation.z = 0
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("attack") and not weapon_anim_plr.is_playing():
-		weapon_anim_plr.play("swing")
+func equip_mask(mask_type: String) -> void:
+	match mask_type:
+		"Dragon":
+			pass
+		"Minotaur":
+			pass
+		"Wolf":
+			pass
+		"Goblin":
+			pass
 		

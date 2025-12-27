@@ -126,8 +126,8 @@ skeleton = NodePath("../../..")
 [node name="WeaponCollision" type="CollisionShape3D" parent="WeaponPivot/Weapon"]
 shape = SubResource("CapsuleShape3D_uvnfx")
 
-[node name="WeaponAnimPlayer" type="AnimationPlayer" parent="WeaponPivot"]
-root_node = NodePath("../..")
+[node name="WeaponAnimPlayer" type="AnimationPlayer" parent="WeaponPivot/Weapon"]
+root_node = NodePath("../../..")
 libraries = {
 &"": SubResource("AnimationLibrary_xpcdj")
 }
