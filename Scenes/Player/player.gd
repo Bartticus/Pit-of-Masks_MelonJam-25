@@ -48,13 +48,23 @@ func player_look_at_cursor() -> void:
 	rotation.z = 0
 
 func equip_mask(mask_type: String) -> void:
+	$PlayerMesh.hide()
+	
 	match mask_type:
 		"Dragon":
+			$DragonMesh.show()
+			#other dragon stuff
 			pass
 		"Minotaur":
+			$MinotaurMesh.show()
+			#mino stuff
 			pass
 		"Wolf":
+			$WolfMesh.show()
+			#wolf stuff
 			pass
 		"Goblin":
+			$GoblinMesh.show()
+			#goblin stuff
 			pass
 		

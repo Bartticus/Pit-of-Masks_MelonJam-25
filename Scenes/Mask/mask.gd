@@ -31,6 +31,5 @@ func spawn_animation() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
-		#pickup animation
-		body.equip_mask(mask_type)
+		body.equip_mask(mask_type) #Send mask info to player
 		call_deferred("queue_free")
