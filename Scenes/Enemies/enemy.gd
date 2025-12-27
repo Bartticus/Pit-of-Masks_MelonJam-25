@@ -27,4 +27,5 @@ func die() -> void:
 	mask.mask_type = "Dragon"
 	add_sibling(mask)
 	
-	call_deferred("queue_free")
+	#call_deferred("queue_free")
+	queue_free()

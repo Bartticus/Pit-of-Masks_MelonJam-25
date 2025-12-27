@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://qrp2qrl5esb7"]
 
-[ext_resource type="Script" uid="uid://cxjn8xymotref" path="res://vixen_unsorted/scripts/enemy.gd" id="1_mgaaf"]
-[ext_resource type="PackedScene" uid="uid://dd71dvq1eho4v" path="res://Scenes/Mask/mask.tscn" id="2_fk3qc"]
+[ext_resource type="Script" uid="uid://cxjn8xymotref" path="res://Scenes/Enemies/enemy.gd" id="1_dmwl5"]
+[ext_resource type="PackedScene" uid="uid://dd71dvq1eho4v" path="res://Scenes/Mask/mask.tscn" id="2_d40jh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mgaaf"]
 
 [node name="Enemy" type="CharacterBody3D" groups=["enemies"]]
 collision_layer = 4
 collision_mask = 3
-script = ExtResource("1_mgaaf")
-mask_scene = ExtResource("2_fk3qc")
+script = ExtResource("1_dmwl5")
+mask_scene = ExtResource("2_d40jh")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d3sjj1gxysnqy" path="res://bartticus/texture_01.png" id="1_cwgqa"]
 [ext_resource type="PackedScene" uid="uid://bipe8iju31m6v" path="res://Scenes/Player/player.tscn" id="2_2c3ow"]
-[ext_resource type="Script" uid="uid://con6os5ranflg" path="res://vixen_unsorted/scripts/enemy_spawner.gd" id="3_p11uh"]
+[ext_resource type="Script" uid="uid://con6os5ranflg" path="res://Scenes/Arena/enemy_spawner.gd" id="3_p11uh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3vb8q"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
