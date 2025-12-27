@@ -1,7 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://bipe8iju31m6v"]
+[gd_scene load_steps=21 format=3 uid="uid://bipe8iju31m6v"]
 
 [ext_resource type="Script" uid="uid://dyhame4xdaskv" path="res://Scenes/Player/player.gd" id="1_uvnfx"]
 [ext_resource type="Script" uid="uid://48msrf4ft25n" path="res://Scenes/Player/weapon.gd" id="2_a3d8c"]
+[ext_resource type="Script" uid="uid://dsixmcw8uyxke" path="res://addons/finite_state_machine/state_machine.gd" id="3_mtuoh"]
+[ext_resource type="Script" uid="uid://c5v4p2qypod8b" path="res://Scenes/Player/player_default.gd" id="4_htcer"]
+[ext_resource type="Script" uid="uid://brga6s31qe3vs" path="res://Scenes/Player/player_dragon.gd" id="5_htcer"]
+[ext_resource type="Script" uid="uid://6kk32fm738uy" path="res://Scenes/Player/player_goblin.gd" id="6_dd0ac"]
+[ext_resource type="Script" uid="uid://7o2cbh8qfa6t" path="res://Scenes/Player/player_minotaur.gd" id="7_0u5uq"]
+[ext_resource type="Script" uid="uid://l1hpv7t1dici" path="res://Scenes/Player/player_wolf.gd" id="8_jlvik"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vb8q"]
 
@@ -14,6 +20,45 @@ height = 1.0
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvnfx"]
 radius = 0.1
 height = 1.0
+
+[sub_resource type="Animation" id="Animation_a3d8c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponPivot/Weapon/WeaponCollision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_uvnfx"]
 resource_name = "swing"
@@ -56,45 +101,6 @@ tracks/2/keys = {
 "values": [true, false, true]
 }
 
-[sub_resource type="Animation" id="Animation_a3d8c"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeaponPivot:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, -0.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WeaponPivot:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WeaponPivot/Weapon/WeaponCollision:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xpcdj"]
 _data = {
 &"RESET": SubResource("Animation_a3d8c"),
@@ -107,19 +113,20 @@ albedo_color = Color(0, 0.45882353, 0, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xpcdj"]
 material = SubResource("StandardMaterial3D_a3d8c")
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_a3d8c"]
-radius = 1.0
-height = 4.0
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mtuoh"]
 radius = 0.25
 height = 1.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a3d8c"]
+radius = 1.0
+height = 4.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_htcer"]
 radius = 1.0
 height = 4.0
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 2
 script = ExtResource("1_uvnfx")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="."]
@@ -155,19 +162,39 @@ transform = Transform3D(3.57, 0, 0, 0, -1.5604968e-07, 3.5700004, 0, -3.5700004,
 visible = false
 mesh = SubResource("CapsuleMesh_xpcdj")
 
-[node name="MinotaurMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-visible = false
-mesh = SubResource("CapsuleMesh_a3d8c")
-
 [node name="GoblinMesh" type="MeshInstance3D" parent="."]
 visible = false
 mesh = SubResource("CapsuleMesh_mtuoh")
 skeleton = NodePath("../MinotaurMesh")
 
+[node name="MinotaurMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_a3d8c")
+
 [node name="WolfMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 visible = false
 mesh = SubResource("CapsuleMesh_htcer")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_mtuoh")
+initial_state = NodePath("PlayerDefault")
+metadata/_custom_type_script = "uid://dsixmcw8uyxke"
+
+[node name="PlayerDefault" type="Node" parent="StateMachine"]
+script = ExtResource("4_htcer")
+
+[node name="PlayerDragon" type="Node" parent="StateMachine"]
+script = ExtResource("5_htcer")
+
+[node name="PlayerGoblin" type="Node" parent="StateMachine"]
+script = ExtResource("6_dd0ac")
+
+[node name="PlayerMinotaur" type="Node" parent="StateMachine"]
+script = ExtResource("7_0u5uq")
+
+[node name="PlayerWolf" type="Node" parent="StateMachine"]
+script = ExtResource("8_jlvik")
 
 [connection signal="body_entered" from="WeaponPivot/Weapon" to="WeaponPivot/Weapon" method="_on_body_entered"]

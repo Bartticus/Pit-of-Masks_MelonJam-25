@@ -6,6 +6,8 @@ var gravity: float = 9.8
 @export var speed: float = 20.0
 @export var accel: float = 2.0
 
+@export var current_mask: String = "Default"
+
 
 func _ready() -> void:
 	Global.player = self
@@ -49,11 +51,16 @@ func player_look_at_cursor() -> void:
 
 func equip_mask(mask_type: String) -> void:
 	$PlayerMesh.hide()
+	current_mask = mask_type
 	
 	match mask_type:
 		"Dragon":
 			$DragonMesh.show()
 			#other dragon stuff
+			pass
+		"Goblin":
+			$GoblinMesh.show()
+			#goblin stuff
 			pass
 		"Minotaur":
 			$MinotaurMesh.show()
@@ -62,9 +69,5 @@ func equip_mask(mask_type: String) -> void:
 		"Wolf":
 			$WolfMesh.show()
 			#wolf stuff
-			pass
-		"Goblin":
-			$GoblinMesh.show()
-			#goblin stuff
 			pass
 		
