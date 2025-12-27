@@ -31,5 +31,5 @@ func _attack():
 	temp.rotation.y = so.enemy.rotation.y + randf_range(-1, 1) * deg_to_rad(angle)
 	get_tree().current_scene.get_node("Fireballs").add_child(temp)
 
-func physics_process(delta: float):
+func physics_process(_delta: float):
 	pass

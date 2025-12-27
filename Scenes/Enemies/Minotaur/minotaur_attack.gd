@@ -7,9 +7,9 @@ func enter():
 	so.anim_player.play("swing")
 func exit():
 	pass
-func process(delta: float):
+func process(_delta: float):
 	pass
-func physics_process(delta: float):
+func physics_process(_delta: float):
 	pass
 
 func end_of_anim():

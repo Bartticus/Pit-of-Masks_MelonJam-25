@@ -24,9 +24,9 @@ func enter():
 	so.anim_player.play("dash")
 func exit():
 	pass
-func process(delta: float):
+func process(_delta: float):
 	pass
-func physics_process(delta: float):
+func physics_process(_delta: float):
 	pass
 
 func _anim_ended():

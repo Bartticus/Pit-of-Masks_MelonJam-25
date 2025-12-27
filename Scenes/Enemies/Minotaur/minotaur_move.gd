@@ -8,7 +8,7 @@ func enter():
 	pass
 func exit():
 	pass
-func process(delta: float):
+func process(_delta: float):
 	so.look_at_player()
 func physics_process(delta: float):
 	if so.distance_player_enemy() < distance_for_attack:

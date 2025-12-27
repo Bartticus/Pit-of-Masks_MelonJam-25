@@ -4,7 +4,7 @@ extends CharacterBody3D
 const gravity: float = 9.8
 @export var mask_scene: PackedScene
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	pass
 	#if not is_on_floor(): #Keep enemy grounded
 		#velocity.y -= gravity

@@ -6,13 +6,20 @@ extends Area3D
 var min_drop_radius: float = 1.0
 var max_drop_radius: float = 2.0
 
+@onready var camera: Camera3D = get_viewport().get_camera_3d()
+@onready var mesh_pivot: Node3D = $MeshPivot
+
+
 func _ready() -> void:
-	randomize()
 	spawn_animation()
+
+func _process(_delta: float) -> void:
+	mesh_pivot.look_at(camera.global_position, Vector3.UP, true)
 
 func spawn_animation() -> void:
 	global_position = spawn_point
 	
+	randomize()
 	var rand_x: float = randf_range(-max_drop_radius, max_drop_radius)
 	while abs(rand_x) < min_drop_radius:
 		rand_x = randf_range(-max_drop_radius, max_drop_radius)
