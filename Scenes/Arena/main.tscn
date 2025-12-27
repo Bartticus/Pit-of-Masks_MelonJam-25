@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://da64e61xoc4na"]
 
-[ext_resource type="Script" uid="uid://con6os5ranflg" path="res://vixen_unsorted/scripts/enemy_spawner.gd" id="1_ywfe8"]
+[ext_resource type="Script" uid="uid://con6os5ranflg" path="res://Scenes/Arena/enemy_spawner.gd" id="1_1ooer"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ywfe8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -16,7 +16,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="Main" type="Node"]
-script = ExtResource("1_ywfe8")
+script = ExtResource("1_1ooer")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qoto6")
