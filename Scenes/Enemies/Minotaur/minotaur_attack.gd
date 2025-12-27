@@ -1,10 +1,15 @@
 extends State
 class_name MinotaurAttack
 
-@export var so: Node
+@export var so: StateObject
 
 func enter():
 	so.anim_player.play("swing")
+	await so.anim_player.animation_finished
+	so.anim_player.play_backwards("swing")
+	await so.anim_player.animation_finished
+	end_of_anim()
+
 func exit():
 	pass
 func process(_delta: float):

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d0rkfhq5pwjgg"
-path="res://.godot/imported/BetterGoblinzMask.glb-1ba880b9434210d7066f397ebb834957.scn"
+path="res://.godot/imported/BetterGoblinzMask.glb-b0e9668f4105590300b334e53fb750d2.scn"
 
 [deps]
 
-source_file="res://Assets/BetterGoblinzMask.glb"
-dest_files=["res://.godot/imported/BetterGoblinzMask.glb-1ba880b9434210d7066f397ebb834957.scn"]
+source_file="res://Assets/Models/BetterGoblinzMask.glb"
+dest_files=["res://.godot/imported/BetterGoblinzMask.glb-b0e9668f4105590300b334e53fb750d2.scn"]
 
 [params]
 

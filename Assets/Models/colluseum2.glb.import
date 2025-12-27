@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dbd1ys8jbq7e4"
-path="res://.godot/imported/Goblinz2.glb-0aae837bee784f06442ace2da0828304.scn"
+uid="uid://ce81d8ibq6acr"
+path="res://.godot/imported/colluseum2.glb-32c488a0eee01a947be9bd19b4c46bb8.scn"
 
 [deps]
 
-source_file="res://Assets/Goblinz2.glb"
-dest_files=["res://.godot/imported/Goblinz2.glb-0aae837bee784f06442ace2da0828304.scn"]
+source_file="res://Assets/Models/colluseum2.glb"
+dest_files=["res://.godot/imported/colluseum2.glb-32c488a0eee01a947be9bd19b4c46bb8.scn"]
 
 [params]
 

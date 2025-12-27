@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dlgpgrqcxh82v"
-path="res://.godot/imported/Minotaure3.glb-a6ed18e5604cfe5b1480e8d7002ec309.scn"
+path="res://.godot/imported/Minotaure3.glb-09df943019723df385f32f0a23be025a.scn"
 
 [deps]
 
-source_file="res://Assets/Minotaure3.glb"
-dest_files=["res://.godot/imported/Minotaure3.glb-a6ed18e5604cfe5b1480e8d7002ec309.scn"]
+source_file="res://Assets/Models/Minotaure3.glb"
+dest_files=["res://.godot/imported/Minotaure3.glb-09df943019723df385f32f0a23be025a.scn"]
 
 [params]
 

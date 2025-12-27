@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://oxjhhj6uhl14" path="res://Scenes/Mask/mask.gd" id="1_q0cms"]
 [ext_resource type="Texture2D" uid="uid://bdjovkxkbd0jg" path="res://bartticus/texture_03.png" id="1_vymxh"]
-[ext_resource type="PackedScene" uid="uid://d0rkfhq5pwjgg" path="res://Assets/BetterGoblinzMask.glb" id="3_7uu0t"]
+[ext_resource type="PackedScene" uid="uid://d0rkfhq5pwjgg" path="res://Assets/Models/BetterGoblinzMask.glb" id="3_7uu0t"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_60syn"]
 

@@ -1,8 +1,8 @@
 extends State
 class_name DragonAttack
 
-@export var so: Node
-@export var distance_for_walk = 10
+@export var so: StateObject
+@export var distance_for_walk: float = 10
 @export var spawpoint: Node3D
 @export var angle: float = 30
 var past_time = 0
