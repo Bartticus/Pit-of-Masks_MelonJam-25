@@ -10,7 +10,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mount:position")
+tracks/0/path = NodePath("Minotaure3/Mount:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -22,7 +22,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Mount:rotation")
+tracks/1/path = NodePath("Minotaure3/Mount:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -37,7 +37,7 @@ resource_name = "swing"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mount:position")
+tracks/0/path = NodePath("Minotaure3/Mount:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -49,7 +49,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Mount:rotation")
+tracks/1/path = NodePath("Minotaure3/Mount:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -78,9 +78,6 @@ _data = {
 &"RESET": SubResource("Animation_jcmg5"),
 &"swing": SubResource("Animation_pkuws")
 }
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f7lsa"]
-radius = 0.55566406
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tobsg"]
 resource_name = "Material.006"
@@ -256,6 +253,45 @@ bind/18/pose = Transform3D(0.40532875, -0.13449962, -0.2106557, 0.24915077, 0.24
 bind/19/name = &"Bone.018"
 bind/19/bone = -1
 bind/19/pose = Transform3D(0.47619042, 2.7394996e-08, 1.1017792e-07, -9.2069025e-15, -0.46211973, 0.114902996, 1.1353264e-07, -0.11490297, -0.46211973, -5.5984805e-07, 4.409674, 2.3481731)
+
+[sub_resource type="Animation" id="Animation_f7lsa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mount:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.9053798, 1.6135086, 1.9221941)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mount:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.09424778, 5.7595863, 0.20594884)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mount/Area3D/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_7wuae"]
 resource_name = "Walk-loop"
@@ -506,77 +542,38 @@ tracks/16/keys = PackedFloat32Array(0, 1, 0.88197577, 4.8979913e-08, 1.0147216e-
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("../Mount:position")
+tracks/17/path = NodePath("Mount:position")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(0, 0.36666667, 0.3962411, 0.4391355, 0.5724688, 0.6058022),
-"transitions": PackedFloat32Array(5.0982404, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.33, 0.41, 0.56666666),
+"transitions": PackedFloat32Array(5.0982404, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-3.0682414, 1.6440197, 1.7276775), Vector3(-3.368201, 1.6452831, -0.35117146), Vector3(-1.9830608, 1.6459062, -2.8174734), Vector3(0.17191386, 1.6663853, -3.3213468), Vector3(2.401408, 1.6663853, -1.6011086), Vector3(2.401408, 1.6663853, -1.6011086)]
+"values": [Vector3(9.253399, 4.494197, -2.7768588), Vector3(9.871704, 2.829264, 2.1532412), Vector3(3.4406111, 2.829262, 7.9720607), Vector3(-3.8826885, 3.5209138, 4.395369)]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("../Mount:rotation")
+tracks/18/path = NodePath("Mount:rotation")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(0, 0.36666667, 0.3962411, 0.43958122, 0.5724688, 0.6058022),
-"transitions": PackedFloat32Array(5.0982404, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.33, 0.41, 0.56666666),
+"transitions": PackedFloat32Array(5.0982404, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.099483766, 5.5850534, 0.24085544), Vector3(-0.06981317, 4.886922, 0.20071286), Vector3(-0.055850536, 3.8397243, 0.17976892), Vector3(-0.09482943, 3.0931213, 0.20508678), Vector3(-0.09482939, 2.053703, 0.20508678), Vector3(-0.09482939, 2.053703, 0.20508678)]
+"values": [Vector3(0.101792656, -0.6983275, 0.07261381), Vector3(0.23541301, -1.2302756, 0.22941615), Vector3(0.23541294, -2.7201934, 0.22941624), Vector3(0.12566371, -4.276057, 0.17627825)]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("../Mount/Area3D/CollisionShape3D:disabled")
+tracks/19/path = NodePath("Mount/Area3D/CollisionShape3D:disabled")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
-"times": PackedFloat32Array(0, 0.3708452, 0.6133209),
+"times": PackedFloat32Array(0, 0.3, 0.6133209),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
-}
-
-[sub_resource type="Animation" id="Animation_f7lsa"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Mount:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-2.9053798, 1.6135086, 1.9221941)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Mount:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.09424778, 5.7595863, 0.20594884)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Mount/Area3D/CollisionShape3D:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d6wnb"]
@@ -585,6 +582,9 @@ _data = {
 &"Walk": SubResource("Animation_7wuae"),
 &"swing": SubResource("Animation_0hv23")
 }
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f7lsa"]
+radius = 0.55566406
 
 [node name="Enemy" instance=ExtResource("1_pkuws")]
 
@@ -605,6 +605,7 @@ anim_player = NodePath("../../Minotaure3/AnimationPlayer")
 [node name="MinotaurMove" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("so")]
 script = ExtResource("2_jcmg5")
 so = NodePath("../StateObject")
+distance_for_attack = 5.0
 metadata/_custom_type_script = "uid://bakfne7rbociq"
 
 [node name="MinotaurAttack" type="Node" parent="StateMachine" index="2" node_paths=PackedStringArray("so")]
@@ -617,25 +618,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_isjdv")
 }
 
-[node name="Mount" type="Node3D" parent="." index="4"]
-transform = Transform3D(0.85734636, -0.13103893, -0.49778128, 0.20358849, 0.97452307, 0.094108336, 0.4727674, -0.18202591, 0.862182, -2.9053798, 1.6135086, 1.9221941)
-
-[node name="Axe" type="CSGCylinder3D" parent="Mount" index="0"]
-transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, -1, 0, 1.0000001, -4.371139e-08, 0, 0, -0.84)
-visible = false
-radius = 0.048
-
-[node name="Area3D" type="Area3D" parent="Mount" index="1"]
-transform = Transform3D(1, 0, 0, -7.450581e-09, -5.9604645e-08, -1, 1.4901161e-08, 1.0000001, -5.9604645e-08, 5.9604645e-08, 2.2351742e-08, -0.8399999)
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mount/Area3D" index="0"]
-transform = Transform3D(0.9999981, 2.9802322e-08, -1.1920929e-07, 2.3841858e-07, 0.9999995, -2.9802322e-08, 1.9818544e-06, 1.4901161e-07, 0.99999887, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_f7lsa")
-disabled = true
-
-[node name="Minotaure3" type="Node3D" parent="." index="5"]
-transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 0, 0.6494336, 0)
+[node name="Minotaure3" type="Node3D" parent="." index="4"]
+transform = Transform3D(-0.3, 0, -4.5298744e-08, 0, 0.3, 0, 4.5298744e-08, 0, -0.3, 0, 0.6494336, 0)
 
 [node name="minorig" type="Node3D" parent="Minotaure3" index="0"]
 transform = Transform3D(2.1000001, 0, 0, 0, 2.1000001, 0, 0, 0, 2.1000001, 0, 0, 0)
@@ -646,21 +630,21 @@ bones/0/parent = -1
 bones/0/rest = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 bones/0/enabled = true
 bones/0/position = Vector3(0, 0, 0)
-bones/0/rotation = Quaternion(0, 0.12575601, 0, 0.9920612)
+bones/0/rotation = Quaternion(0, 0.1748909, 0, 0.9845879)
 bones/0/scale = Vector3(0.99999994, 0.99999994, 0.99999994)
 bones/1/name = "Bone.003"
 bones/1/parent = 0
 bones/1/rest = Transform3D(0.3861909, -4.9574055e-07, -0.9224188, -2.8421706e-14, -0.9999998, 5.374355e-07, -0.9224188, -2.0755265e-07, -0.38619092, -0.95238066, -0.47618982, 6.406729e-14)
 bones/1/enabled = true
-bones/1/position = Vector3(-0.9523807, -0.36324012, 0.45179898)
-bones/1/rotation = Quaternion(0.76843166, -0.21315554, -0.5113407, 0.32032514)
+bones/1/position = Vector3(-0.9523808, -0.47618988, 2.5136405e-08)
+bones/1/rotation = Quaternion(0.8325236, -1.4886685e-07, -0.55398977, -2.237139e-07)
 bones/1/scale = Vector3(0.9999999, 0.9999998, 0.9999999)
 bones/2/name = "Bone.004"
 bones/2/parent = 1
 bones/2/rest = Transform3D(1, 1.7881393e-07, 2.9802298e-08, -1.7881396e-07, 0.99999994, 2.6871766e-07, -2.980225e-08, -2.6871763e-07, 1, -1.4582679e-07, 1.4285711, -5.1086556e-07)
 bones/2/enabled = true
 bones/2/position = Vector3(-1.4582679e-07, 1.4285711, -5.1086556e-07)
-bones/2/rotation = Quaternion(-1.0822654e-07, -0.30307034, 2.8814632e-08, 0.9529682)
+bones/2/rotation = Quaternion(-1.343588e-07, 1.8626212e-09, -8.9406974e-08, 1)
 bones/2/scale = Vector3(1, 0.99999994, 1)
 bones/3/name = "Bone.005"
 bones/3/parent = 2
@@ -673,15 +657,15 @@ bones/4/name = "Bone.010"
 bones/4/parent = 0
 bones/4/rest = Transform3D(0.3861909, 1.6524686e-07, -0.9224188, 6.609877e-07, -0.9999998, 9.75919e-08, -0.9224188, -6.473966e-07, -0.38619092, 0.95238054, -0.47618958, 6.406729e-14)
 bones/4/enabled = true
-bones/4/position = Vector3(0.9523806, -0.23415427, -0.54861283)
-bones/4/rotation = Quaternion(0.70591956, 0.29367685, -0.46974298, -0.44133106)
+bones/4/position = Vector3(0.9523806, -0.4761896, -5.4367757e-08)
+bones/4/rotation = Quaternion(0.884444, 2.6953288e-07, -0.46664643, -1.9738111e-07)
 bones/4/scale = Vector3(0.9999999, 0.9999998, 0.9999999)
 bones/5/name = "Bone.011"
 bones/5/parent = 4
 bones/5/rest = Transform3D(1, -2.980236e-07, 2.9802209e-08, 2.9802362e-07, 0.99999994, 2.687178e-07, -2.9802289e-08, -2.6871777e-07, 1, -6.117001e-07, 1.4285711, -3.9646935e-08)
 bones/5/enabled = true
 bones/5/position = Vector3(-6.117001e-07, 1.4285711, -3.9646935e-08)
-bones/5/rotation = Quaternion(-2.60797e-07, 0.23732446, 1.5888612e-07, 0.9714304)
+bones/5/rotation = Quaternion(-1.343589e-07, -3.7303497e-14, 1.4901178e-07, 1)
 bones/5/scale = Vector3(1, 0.99999994, 1)
 bones/6/name = "Bone.012"
 bones/6/parent = 5
@@ -694,8 +678,8 @@ bones/7/name = "Bone.002"
 bones/7/parent = -1
 bones/7/rest = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 2.8571422, 0)
 bones/7/enabled = true
-bones/7/position = Vector3(0, 2.8571424, 0)
-bones/7/rotation = Quaternion(0, 0.30550024, 0, 0.952192)
+bones/7/position = Vector3(-2.6893037e-08, 2.8571424, -2.0443832e-16)
+bones/7/rotation = Quaternion(-0.009963117, 0.17609106, 0.055603445, 0.9827517)
 bones/7/scale = Vector3(0.99999994, 0.99999994, 0.99999994)
 bones/8/name = "Bone.001"
 bones/8/parent = 7
@@ -709,7 +693,7 @@ bones/9/parent = 7
 bones/9/rest = Transform3D(0.116673194, 0.19950604, -0.97292584, 0.023755338, -0.9798968, -0.19808666, -0.9928921, -7.786954e-07, -0.1190663, -2.47619, 0.8095238, 0)
 bones/9/enabled = true
 bones/9/position = Vector3(-2.47619, 0.8095238, 0)
-bones/9/rotation = Quaternion(0.7442506, 0.07499532, -0.66033286, 0.066538714)
+bones/9/rotation = Quaternion(0.7498653, 0.004356552, -0.6583832, -0.06492045)
 bones/9/scale = Vector3(1.0000058, 1.0000001, 0.9999999)
 bones/10/name = "Bone.007"
 bones/10/parent = 9
@@ -730,7 +714,7 @@ bones/12/parent = 7
 bones/12/rest = Transform3D(0.11667286, -0.19950473, -0.972926, -0.023754008, -0.9798967, 0.19808553, -0.99288565, -3.1328517e-07, -0.11906647, 2.4761896, 0.8095238, 0)
 bones/12/enabled = true
 bones/12/position = Vector3(2.4761896, 0.8095238, 0)
-bones/12/rotation = Quaternion(0.7442507, -0.07499449, -0.6603328, -0.0665387)
+bones/12/rotation = Quaternion(-0.12271477, -0.29850736, -0.9096244, 0.26156846)
 bones/12/scale = Vector3(0.99999934, 0.9999998, 0.9999999)
 bones/13/name = "Bone.014"
 bones/13/parent = 12
@@ -744,21 +728,21 @@ bones/14/parent = 13
 bones/14/rest = Transform3D(0.99995303, -0.009674253, 0.00039064483, 0.009674235, 0.9966933, -0.08067434, 0.0003911109, 0.08067432, 0.99674046, -0.0014744176, 1.9100717, 0.012292973)
 bones/14/enabled = true
 bones/14/position = Vector3(-0.0014744176, 1.9100717, 0.012292973)
-bones/14/rotation = Quaternion(0.04037055, -1.2047828e-07, 0.004841128, 0.99917305)
+bones/14/rotation = Quaternion(0.48983994, -0.044057082, 0.14154486, 0.85911644)
 bones/14/scale = Vector3(0.9999999, 0.9999997, 1)
 bones/15/name = "Bone.019"
 bones/15/parent = 14
 bones/15/rest = Transform3D(-0.5159998, -0.77743125, -0.35964522, 0.8435267, -0.5342171, -0.05545013, -0.14902, -0.33198258, 0.93143994, 0.8203943, 0.33091035, 0.29667884)
 bones/15/enabled = true
 bones/15/position = Vector3(0.8203943, 0.33091035, 0.29667884)
-bones/15/rotation = Quaternion(-0.14729, -0.1121857, 0.86337376, 0.4693674)
+bones/15/rotation = Quaternion(-0.13404515, -0.14915112, 0.7863439, 0.5843367)
 bones/15/scale = Vector3(1, 0.9999998, 0.9999999)
 bones/16/name = "Bone.009"
 bones/16/parent = -1
 bones/16/rest = Transform3D(0.99999994, 0, 0, 0, 0.73994005, -0.67267275, 0, 0.6726728, 0.73994, 0, 4.285713, 0)
 bones/16/enabled = true
-bones/16/position = Vector3(0, 4.2857137, 0)
-bones/16/rotation = Quaternion(0.3605967, 0, 0, 0.93272185)
+bones/16/position = Vector3(-9.2456915e-08, 4.2857137, -1.2546523e-15)
+bones/16/rotation = Quaternion(0.35888177, 0.035126213, 0.09085772, 0.928286)
 bones/16/scale = Vector3(0.99999994, 1, 0.9999999)
 bones/17/name = "Bone.016"
 bones/17/parent = 16
@@ -779,7 +763,7 @@ bones/19/parent = 16
 bones/19/rest = Transform3D(0.99999994, -7.105426e-15, 2.3841855e-07, 1.9820716e-07, -0.5557624, -0.83134097, 1.3250411e-07, 0.831341, -0.5557624, 1.2440407e-16, 1.2316931, 0.52196604)
 bones/19/enabled = true
 bones/19/position = Vector3(1.2440407e-16, 1.2316931, 0.52196604)
-bones/19/rotation = Quaternion(0.88197577, 5.6182706e-08, 1.0513969e-07, 0.4712948)
+bones/19/rotation = Quaternion(0.88197577, 4.8979913e-08, 1.0147215e-07, 0.4712948)
 bones/19/scale = Vector3(0.99999994, 0.9999999, 0.9999998)
 
 [node name="MINOTAURE" type="MeshInstance3D" parent="Minotaure3/minorig/Skeleton3D" index="0"]
@@ -791,5 +775,23 @@ libraries = {
 &"": SubResource("AnimationLibrary_d6wnb")
 }
 autoplay = "Walk"
+blend_times = [&"swing", &"Walk", 0.3, &"swing", &"swing", 0.3]
 
-[connection signal="body_entered" from="Mount/Area3D" to="StateMachine/MinotaurAttack" method="_on_area_3d_body_entered"]
+[node name="Mount" type="Node3D" parent="Minotaure3" index="2"]
+transform = Transform3D(4.2867203, -0.6551939, -2.4889007, 1.0179397, 4.8726096, 0.47054058, 2.3638308, -0.9101285, 4.3109, -2.9053798, 1.6135086, 1.9221941)
+
+[node name="Axe" type="CSGCylinder3D" parent="Minotaure3/Mount" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, -1, 0, 1.0000001, -4.371139e-08, 0, 0, -0.84)
+visible = false
+radius = 0.048
+
+[node name="Area3D" type="Area3D" parent="Minotaure3/Mount" index="1"]
+transform = Transform3D(1, 0, 0, -7.450581e-09, -5.9604645e-08, -1, 1.4901161e-08, 1.0000001, -5.9604645e-08, 5.9604645e-08, 2.2351742e-08, -0.8399999)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Minotaure3/Mount/Area3D" index="0"]
+transform = Transform3D(0.9999981, 2.9802322e-08, -1.1920929e-07, 2.3841858e-07, 0.9999995, -2.9802322e-08, 1.9818544e-06, 1.4901161e-07, 0.99999887, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_f7lsa")
+disabled = true
+
+[connection signal="body_entered" from="Minotaure3/Mount/Area3D" to="StateMachine/MinotaurAttack" method="_on_area_3d_body_entered"]

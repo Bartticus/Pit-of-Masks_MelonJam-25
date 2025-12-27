@@ -18,8 +18,8 @@ radius = 0.1
 height = 1.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvnfx"]
-radius = 0.1
-height = 1.0
+radius = 0.22167969
+height = 1.2666016
 
 [sub_resource type="Animation" id="Animation_a3d8c"]
 length = 0.001
@@ -57,7 +57,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_uvnfx"]
@@ -149,7 +149,9 @@ mesh = SubResource("CapsuleMesh_nwwfe")
 skeleton = NodePath("../../..")
 
 [node name="WeaponCollision" type="CollisionShape3D" parent="WeaponPivot/Weapon"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.9802322e-08, 0, 2.9802322e-08, 1, 0, 0.13330084, 0)
 shape = SubResource("CapsuleShape3D_uvnfx")
+disabled = true
 
 [node name="WeaponAnimPlayer" type="AnimationPlayer" parent="WeaponPivot/Weapon"]
 root_node = NodePath("../../..")

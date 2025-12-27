@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://sk5pmqb57rop"
+path="res://.godot/imported/Arena Theme.mp3-2f5e582fe30e4b405e05fd2df692fffb.mp3str"
+
+[deps]
+
+source_file="res://Audio/Arena Theme.mp3"
+dest_files=["res://.godot/imported/Arena Theme.mp3-2f5e582fe30e4b405e05fd2df692fffb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

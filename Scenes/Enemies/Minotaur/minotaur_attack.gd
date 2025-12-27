@@ -18,7 +18,7 @@ func physics_process(_delta: float):
 	pass
 
 func end_of_anim():
-	so.anim_player.play("RESET")
+	so.anim_player.play("Walk")
 	transitioned.emit(self, "MinotaurMove")
 
 
