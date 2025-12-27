@@ -11,7 +11,7 @@ func _ready() -> void:
 	_spawn_enemy(0)
 	_spawn_enemy(1)
 	_spawn_enemy(2)
-	_spawn_enemy(2)
+	#_spawn_enemy(2)
 
 func _spawn_enemy(index):
 	var pos = Vector3.RIGHT * distance_from_center

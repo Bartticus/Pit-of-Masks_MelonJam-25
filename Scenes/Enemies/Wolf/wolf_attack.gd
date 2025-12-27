@@ -2,6 +2,7 @@ extends State
 class_name WolfAttack
 
 @export var so: Node
+@export var attack_distance: float = 5
 const WOLF_ANIM_LIBRARY = preload("uid://2kmeaaeet3n0")
 var anim_library
 var anim : Animation
@@ -15,8 +16,8 @@ func _ready() -> void:
 func enter():
 	anim.track_set_key_value(0, 0, so.enemy.position)
 	anim.track_set_key_value(0, 1, so.enemy.position)
-	anim.track_set_key_value(0, 2, so.enemy.position - so.enemy.transform.basis.z * 10)
-	anim.track_set_key_value(0, 3, so.enemy.position - so.enemy.transform.basis.z * 10)
+	anim.track_set_key_value(0, 2, so.enemy.position - so.enemy.transform.basis.z * attack_distance)
+	anim.track_set_key_value(0, 3, so.enemy.position - so.enemy.transform.basis.z * attack_distance)
 	
 	so.anim_player.play("dash")
 func exit():
@@ -25,3 +26,6 @@ func process(delta: float):
 	pass
 func physics_process(delta: float):
 	pass
+
+func _anim_ended():
+	transitioned.emit(self, "WolfWalk")
