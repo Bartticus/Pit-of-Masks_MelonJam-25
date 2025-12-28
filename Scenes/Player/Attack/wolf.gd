@@ -16,7 +16,7 @@ func attack():
 		player.get_node("PlayerCollision").disabled = true
 		timer.start()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not player.can_move:
 		player.velocity = -player.transform.basis.z * dash_speed
 		player.move_and_slide()

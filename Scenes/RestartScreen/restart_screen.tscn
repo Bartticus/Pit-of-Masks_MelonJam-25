@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://yww8nj6uli14" path="res://Scenes/RestartScreen/restart_screen.gd" id="1_558gm"]
 [ext_resource type="Theme" uid="uid://fkqkh28hofcv" path="res://main_theme.tres" id="1_m4fy1"]
 [ext_resource type="Script" uid="uid://ncvw35juesxo" path="res://Scenes/RestartScreen/button.gd" id="2_vl6m8"]
-[ext_resource type="AudioStream" uid="uid://dtywbqarembfr" path="res://Audio/Lose Jingle.mp3" id="3_vl6m8"]
+[ext_resource type="AudioStream" uid="uid://dcloye4qb6yjw" path="res://Audio/Lose Jingle.wav" id="3_vl6m8"]
 
 [node name="RestartScreen" type="CanvasLayer"]
 script = ExtResource("1_558gm")

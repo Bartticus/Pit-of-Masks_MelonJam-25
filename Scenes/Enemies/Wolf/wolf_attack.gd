@@ -7,6 +7,7 @@ class_name WolfAttack
 const WOLF_ANIM_LIBRARY = preload("uid://2kmeaaeet3n0")
 var anim_library
 var anim : Animation
+@export var anim_player_2: AnimationPlayer
 
 func _ready() -> void:
 	anim_library = WOLF_ANIM_LIBRARY.duplicate_deep()
@@ -22,6 +23,12 @@ func enter():
 	anim.track_set_key_value(0, 3, so.enemy.position - so.enemy.transform.basis.z * attack_distance)
 	
 	so.anim_player.play("dash")
+	
+	anim_player_2.play("Bite")
+	await so.anim_player.animation_finished
+	anim_player_2.play_backwards("Bite")
+	await anim_player_2.animation_finished
+	_anim_ended()
 func exit():
 	pass
 func process(_delta: float):
@@ -31,6 +38,7 @@ func physics_process(_delta: float):
 
 func _anim_ended():
 	area.monitoring = false
+	anim_player_2.play("Walk")
 	transitioned.emit(self, "WolfWalk")
 
 func _on_area_3d_body_entered(body: Node3D) -> void:

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://48msrf4ft25n" path="res://Scenes/Player/weapon.gd" id="2_a3d8c"]
 [ext_resource type="PackedScene" uid="uid://88clb3mu1vyg" path="res://Assets/Models/bonom3.glb" id="2_oikmp"]
 [ext_resource type="Script" uid="uid://b8kmhxvj0qkoc" path="res://Scenes/Player/masks.gd" id="3_jlvik"]
-[ext_resource type="Script" uid="uid://d4h55johjvho1" path="res://Scenes/Player/Attack/defalut.gd" id="3_mtuoh"]
+[ext_resource type="Script" uid="uid://d4h55johjvho1" path="res://Scenes/Player/Attack/default.gd" id="3_mtuoh"]
 [ext_resource type="Script" uid="uid://bravoqve4r2ie" path="res://Scenes/Player/Attack/dragon.gd" id="3_xpcdj"]
 [ext_resource type="Script" uid="uid://dv24oqctgo4d7" path="res://Scenes/Player/Attack/goblin.gd" id="5_dd0ac"]
 [ext_resource type="Script" uid="uid://cjiarbw831ye" path="res://Scenes/Player/Attack/wolf.gd" id="6_0u5uq"]
