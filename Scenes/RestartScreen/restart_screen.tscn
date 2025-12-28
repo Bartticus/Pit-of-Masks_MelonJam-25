@@ -1,14 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://moswwloabatl"]
+[gd_scene load_steps=8 format=3 uid="uid://moswwloabatl"]
 
 [ext_resource type="Script" uid="uid://yww8nj6uli14" path="res://Scenes/RestartScreen/restart_screen.gd" id="1_558gm"]
 [ext_resource type="Theme" uid="uid://fkqkh28hofcv" path="res://main_theme.tres" id="1_m4fy1"]
-[ext_resource type="Script" uid="uid://ncvw35juesxo" path="res://Scenes/RestartScreen/button.gd" id="2_vl6m8"]
 [ext_resource type="AudioStream" uid="uid://dcloye4qb6yjw" path="res://Audio/Lose Jingle.wav" id="3_vl6m8"]
+[ext_resource type="AudioStream" uid="uid://4phablu7c73i" path="res://Audio/UI Select.wav" id="5_sqtd5"]
+[ext_resource type="AudioStream" uid="uid://bsoybj41gsvrf" path="res://Audio/UI Hover.wav" id="6_kas4s"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_q50df"]
+random_pitch = 2.04
+streams_count = 1
+stream_0/stream = ExtResource("5_sqtd5")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_svfe6"]
+random_pitch = 1.33
+streams_count = 1
+stream_0/stream = ExtResource("6_kas4s")
 
 [node name="RestartScreen" type="CanvasLayer"]
 script = ExtResource("1_558gm")
 
-[node name="Button" type="Button" parent="."]
+[node name="RestartButton" type="Button" parent="."]
 offset_left = 335.0
 offset_top = 301.0
 offset_right = 595.0
@@ -16,11 +27,17 @@ offset_bottom = 397.0
 theme = ExtResource("1_m4fy1")
 theme_override_font_sizes/font_size = 56
 text = "Restart"
-script = ExtResource("2_vl6m8")
 
 [node name="LoseMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_vl6m8")
 volume_db = -8.0
 
+[node name="uisfx" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_q50df")
+
+[node name="uiHoversfx" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_svfe6")
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="mouse_entered" from="RestartButton" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
