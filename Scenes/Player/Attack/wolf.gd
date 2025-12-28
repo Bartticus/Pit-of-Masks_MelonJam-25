@@ -2,7 +2,7 @@ extends AttackSetup
 
 @export var player: Node3D
 @onready var timer = $Timer
-@onready var area = $Area3D
+@onready var area = $Weapon
 
 var dash_speed = 30
 

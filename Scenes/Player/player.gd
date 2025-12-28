@@ -75,7 +75,9 @@ func player_look_at_cursor() -> void:
 func equip_mask(mask_type: String) -> void:
 	current_mask = mask_type
 	mask_changed.emit()
-		
+	
+	current_mask_mesh.hide()
+	
 	match mask_type:
 		"Dragon":
 			current_mask_mesh = $Masks/Dragon
