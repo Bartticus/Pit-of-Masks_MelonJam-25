@@ -1,13 +1,17 @@
-[gd_scene load_steps=28 format=3 uid="uid://bipe8iju31m6v"]
+[gd_scene load_steps=26 format=3 uid="uid://bipe8iju31m6v"]
 
 [ext_resource type="Script" uid="uid://dyhame4xdaskv" path="res://Scenes/Player/player.gd" id="1_uvnfx"]
 [ext_resource type="Script" uid="uid://48msrf4ft25n" path="res://Scenes/Player/weapon.gd" id="2_a3d8c"]
+[ext_resource type="PackedScene" uid="uid://88clb3mu1vyg" path="res://Assets/Models/bonom3.glb" id="2_oikmp"]
 [ext_resource type="Script" uid="uid://b8kmhxvj0qkoc" path="res://Scenes/Player/masks.gd" id="3_jlvik"]
 [ext_resource type="Script" uid="uid://d4h55johjvho1" path="res://Scenes/Player/Attack/defalut.gd" id="3_mtuoh"]
 [ext_resource type="Script" uid="uid://bravoqve4r2ie" path="res://Scenes/Player/Attack/dragon.gd" id="3_xpcdj"]
 [ext_resource type="Script" uid="uid://dv24oqctgo4d7" path="res://Scenes/Player/Attack/goblin.gd" id="5_dd0ac"]
 [ext_resource type="Script" uid="uid://cjiarbw831ye" path="res://Scenes/Player/Attack/wolf.gd" id="6_0u5uq"]
 [ext_resource type="Script" uid="uid://cbfut85kwf6rb" path="res://Scenes/Player/Attack/minotaur.gd" id="6_jlvik"]
+[ext_resource type="PackedScene" uid="uid://jf80o8tkrrcp" path="res://Assets/Models/DragonMask.glb" id="7_06tpx"]
+[ext_resource type="PackedScene" uid="uid://d0rkfhq5pwjgg" path="res://Assets/Models/BetterGoblinzMask.glb" id="9_7g0yx"]
+[ext_resource type="PackedScene" uid="uid://dnqapeundmmhq" path="res://Assets/Models/MinotaureMask3.glb" id="11_dey5f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vb8q"]
 
@@ -157,27 +161,6 @@ _data = {
 &"swing": SubResource("Animation_0u5uq")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3d8c"]
-albedo_color = Color(0.57, 0.09690001, 0.09690001, 1)
-
-[sub_resource type="PrismMesh" id="PrismMesh_xpcdj"]
-material = SubResource("StandardMaterial3D_a3d8c")
-size = Vector3(0.46, 0.545, 0.495)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xpcdj"]
-albedo_color = Color(0, 0.37755066, 0.11147488, 1)
-
-[sub_resource type="PrismMesh" id="PrismMesh_mtuoh"]
-material = SubResource("StandardMaterial3D_xpcdj")
-size = Vector3(0.46, 0.545, 0.495)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htcer"]
-albedo_color = Color(0.46, 0.46, 0.46, 1)
-
-[sub_resource type="PrismMesh" id="PrismMesh_dd0ac"]
-material = SubResource("StandardMaterial3D_htcer")
-size = Vector3(0.46, 0.545, 0.495)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0u5uq"]
 albedo_color = Color(0.25, 0.16354167, 0.042500004, 1)
 
@@ -196,7 +179,11 @@ weapon_anim_plr = NodePath("WeaponPivot/Dagger/WeaponAnimPlayer")
 [node name="PlayerCollision" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_3vb8q")
 
+[node name="RealPlayerMesh" parent="." instance=ExtResource("2_oikmp")]
+transform = Transform3D(-1.1146404e-08, 0, 0.255, 0, 0.255, 0, -0.255, 0, -1.1146404e-08, 0, 0, 0)
+
 [node name="PlayerMesh" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_8h603")
 
 [node name="WeaponPivot" type="Node3D" parent="."]
@@ -258,9 +245,8 @@ axe = NodePath("../../WeaponPivot/Axe")
 weapon_anim_plr = NodePath("../../WeaponPivot/Dagger/WeaponAnimPlayer")
 
 [node name="Dragon" type="MeshInstance3D" parent="Masks" node_paths=PackedStringArray("dagger", "axe", "spawnpoint", "player", "timer")]
-transform = Transform3D(1.575, 0, 0, 0, -6.884544e-08, 1.575, 0, -1.575, -6.884544e-08, 0, 0.8304199, -0.6698421)
+transform = Transform3D(-0.235, 0, -2.0544352e-08, 0, 0.235, 0, 2.0544352e-08, 0, -0.235, 0, 0.8786837, -0.38278547)
 visible = false
-mesh = SubResource("PrismMesh_xpcdj")
 skeleton = NodePath("../..")
 script = ExtResource("3_xpcdj")
 dagger = NodePath("../../WeaponPivot/Dagger")
@@ -272,25 +258,31 @@ timer = NodePath("Timer")
 [node name="Timer" type="Timer" parent="Masks/Dragon"]
 wait_time = 0.3
 
+[node name="DragonMask" parent="Masks/Dragon" instance=ExtResource("7_06tpx")]
+transform = Transform3D(1, 0, 0, 0, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, 0, 0, 0.15540713)
+
 [node name="Goblin" type="MeshInstance3D" parent="Masks" node_paths=PackedStringArray("dagger", "axe", "weapon_anim_plr")]
 transform = Transform3D(1.575, 0, 0, 0, -6.884544e-08, 1.575, 0, -1.575, -6.884544e-08, 0, 0.8304199, -0.6698421)
 visible = false
-mesh = SubResource("PrismMesh_mtuoh")
 skeleton = NodePath("../..")
 script = ExtResource("5_dd0ac")
 dagger = NodePath("../../WeaponPivot/Dagger")
 axe = NodePath("../../WeaponPivot/Axe")
 weapon_anim_plr = NodePath("../../WeaponPivot/Dagger/WeaponAnimPlayer")
 
+[node name="BetterGoblinzMask" parent="Masks/Goblin" instance=ExtResource("9_7g0yx")]
+transform = Transform3D(-0.115, -1.7364517e-08, -7.590272e-16, 0, -5.0268096e-09, 0.115, -1.7364517e-08, 0.115, 5.0268096e-09, -7.568843e-08, -0.35477412, -0.067747325)
+
 [node name="Minotaur" type="MeshInstance3D" parent="Masks" node_paths=PackedStringArray("dagger", "axe", "anim_player")]
-transform = Transform3D(1.575, 0, 0, 0, -6.884544e-08, 1.575, 0, -1.575, -6.884544e-08, 0, 0.8304199, -0.6698421)
+transform = Transform3D(-0.22, 0, -1.9233012e-08, 0, 0.22, 0, 1.9233012e-08, 0, -0.22, -2.3841858e-07, 0.62846905, 0.15884005)
 visible = false
-mesh = SubResource("PrismMesh_dd0ac")
 skeleton = NodePath("../..")
 script = ExtResource("6_jlvik")
 dagger = NodePath("../../WeaponPivot/Dagger")
 axe = NodePath("../../WeaponPivot/Axe")
 anim_player = NodePath("../../WeaponPivot/Axe/WeaponAnimPlayer")
+
+[node name="MinotaureMask3" parent="Masks/Minotaur" instance=ExtResource("11_dey5f")]
 
 [node name="Wolf" type="MeshInstance3D" parent="Masks" node_paths=PackedStringArray("player")]
 transform = Transform3D(1.575, 0, 0, 0, -6.884544e-08, 1.575, 0, -1.575, -6.884544e-08, 0, 0.8304199, -0.6698421)
