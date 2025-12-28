@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody3D
 
+@export var weapon_anim_plr: AnimationPlayer
+
 var movement_vector := Vector3.ZERO
 var gravity: float = 9.8
 @export var speed: float = 20.0
@@ -15,6 +17,9 @@ signal mask_changed
 signal player_died
 
 var dead = false
+var can_move = true
+
+@onready var current_mask_mesh = $Masks/Default
 
 func _ready() -> void:
 	Global.player = self
@@ -23,9 +28,10 @@ func _physics_process(_delta) -> void:
 	if dead:
 		return
 	
-	handle_movement()
+	if can_move:
+		handle_movement()
 	
-	player_look_at_cursor()
+		player_look_at_cursor()
 
 func handle_movement() -> void:
 	var horizontal_input := Vector3.ZERO
@@ -69,29 +75,25 @@ func player_look_at_cursor() -> void:
 func equip_mask(mask_type: String) -> void:
 	current_mask = mask_type
 	mask_changed.emit()
-	
-	$PlayerMesh.hide()
-	
-	
+		
 	match mask_type:
 		"Dragon":
-			$DragonMesh.show()
-			#other dragon stuff
-			pass
+			current_mask_mesh = $Masks/Dragon
 		"Goblin":
-			$GoblinMesh.show()
-			#goblin stuff
-			pass
+			current_mask_mesh = $Masks/Goblin
 		"Minotaur":
-			$MinotaurMesh.show()
-			#mino stuff
-			pass
+			current_mask_mesh = $Masks/Minotaur
 		"Wolf":
-			$WolfMesh.show()
-			#wolf stuff
-			pass
+			current_mask_mesh = $Masks/Wolf
+	
+	current_mask_mesh.show()
+	current_mask_mesh.setup()
 
-func get_damage():
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("attack"):
+		current_mask_mesh.attack()
+
+func die():
 	player_died.emit()
 	
 	dead = true

@@ -1,13 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://bipe8iju31m6v"]
+[gd_scene load_steps=28 format=3 uid="uid://bipe8iju31m6v"]
 
 [ext_resource type="Script" uid="uid://dyhame4xdaskv" path="res://Scenes/Player/player.gd" id="1_uvnfx"]
 [ext_resource type="Script" uid="uid://48msrf4ft25n" path="res://Scenes/Player/weapon.gd" id="2_a3d8c"]
-[ext_resource type="Script" uid="uid://dsixmcw8uyxke" path="res://addons/finite_state_machine/state_machine.gd" id="3_mtuoh"]
-[ext_resource type="Script" uid="uid://c5v4p2qypod8b" path="res://Scenes/Player/player_default.gd" id="4_htcer"]
-[ext_resource type="Script" uid="uid://brga6s31qe3vs" path="res://Scenes/Player/player_dragon.gd" id="5_htcer"]
-[ext_resource type="Script" uid="uid://6kk32fm738uy" path="res://Scenes/Player/player_goblin.gd" id="6_dd0ac"]
-[ext_resource type="Script" uid="uid://7o2cbh8qfa6t" path="res://Scenes/Player/player_minotaur.gd" id="7_0u5uq"]
-[ext_resource type="Script" uid="uid://l1hpv7t1dici" path="res://Scenes/Player/player_wolf.gd" id="8_jlvik"]
+[ext_resource type="Script" uid="uid://b8kmhxvj0qkoc" path="res://Scenes/Player/masks.gd" id="3_jlvik"]
+[ext_resource type="Script" uid="uid://d4h55johjvho1" path="res://Scenes/Player/Attack/defalut.gd" id="3_mtuoh"]
+[ext_resource type="Script" uid="uid://bravoqve4r2ie" path="res://Scenes/Player/Attack/dragon.gd" id="3_xpcdj"]
+[ext_resource type="Script" uid="uid://dv24oqctgo4d7" path="res://Scenes/Player/Attack/goblin.gd" id="5_dd0ac"]
+[ext_resource type="Script" uid="uid://cjiarbw831ye" path="res://Scenes/Player/Attack/wolf.gd" id="6_0u5uq"]
+[ext_resource type="Script" uid="uid://cbfut85kwf6rb" path="res://Scenes/Player/Attack/minotaur.gd" id="6_jlvik"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vb8q"]
 
@@ -50,7 +50,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("WeaponPivot/Weapon/WeaponCollision:disabled")
+tracks/2/path = NodePath("WeaponPivot/Dagger/WeaponCollision:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -91,7 +91,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("WeaponPivot/Weapon/WeaponCollision:disabled")
+tracks/2/path = NodePath("WeaponPivot/Dagger/WeaponCollision:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -107,27 +107,91 @@ _data = {
 &"swing": SubResource("Animation_uvnfx")
 }
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xpcdj"]
+height = 2.8911133
+
+[sub_resource type="Animation" id="Animation_0u5uq"]
+resource_name = "swing"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 0.51763237, 1.8025012, 1),
+"update": 0,
+"values": [Vector3(0, -0.29293418, -0.3294319), Vector3(0, -0.06811714, -0.86841893), Vector3(-0.43148056, -0.06811714, -1.185008), Vector3(0, -0.29293418, -0.3294319)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 0.51763237, 1.8025012, 1),
+"update": 0,
+"values": [Vector3(-0.27836257, 0, 0), Vector3(-0.021610448, 0.43555322, 0.123293094), Vector3(-0.38565153, 0.906619, -0.30159128), Vector3(-0.27836257, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponPivot/Axe/WeaponCollision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jlvik"]
+_data = {
+&"RESET": SubResource("Animation_a3d8c"),
+&"swing": SubResource("Animation_0u5uq")
+}
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3d8c"]
-albedo_color = Color(0, 0.45882353, 0, 1)
+albedo_color = Color(0.57, 0.09690001, 0.09690001, 1)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_xpcdj"]
+[sub_resource type="PrismMesh" id="PrismMesh_xpcdj"]
 material = SubResource("StandardMaterial3D_a3d8c")
+size = Vector3(0.46, 0.545, 0.495)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_mtuoh"]
-radius = 0.25
-height = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xpcdj"]
+albedo_color = Color(0, 0.37755066, 0.11147488, 1)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_a3d8c"]
-radius = 1.0
-height = 4.0
+[sub_resource type="PrismMesh" id="PrismMesh_mtuoh"]
+material = SubResource("StandardMaterial3D_xpcdj")
+size = Vector3(0.46, 0.545, 0.495)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_htcer"]
-radius = 1.0
-height = 4.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htcer"]
+albedo_color = Color(0.46, 0.46, 0.46, 1)
 
-[node name="Player" type="CharacterBody3D"]
+[sub_resource type="PrismMesh" id="PrismMesh_dd0ac"]
+material = SubResource("StandardMaterial3D_htcer")
+size = Vector3(0.46, 0.545, 0.495)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0u5uq"]
+albedo_color = Color(0.25, 0.16354167, 0.042500004, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_jlvik"]
+material = SubResource("StandardMaterial3D_0u5uq")
+size = Vector3(0.46, 0.545, 0.495)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jlvik"]
+radius = 5.0
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapon_anim_plr")]
 collision_layer = 2
 script = ExtResource("1_uvnfx")
+weapon_anim_plr = NodePath("WeaponPivot/Dagger/WeaponAnimPlayer")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_3vb8q")
@@ -138,69 +202,117 @@ mesh = SubResource("CapsuleMesh_8h603")
 [node name="WeaponPivot" type="Node3D" parent="."]
 transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 
-[node name="Weapon" type="Area3D" parent="WeaponPivot"]
+[node name="Dagger" type="Area3D" parent="WeaponPivot"]
 transform = Transform3D(1, 0, 0, 0, 0.6427876, 0.7660444, 0, -0.7660444, 0.6427876, 0.6, 0.20000002, 0)
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("2_a3d8c")
 
-[node name="WeaponMesh" type="MeshInstance3D" parent="WeaponPivot/Weapon"]
+[node name="WeaponMesh" type="MeshInstance3D" parent="WeaponPivot/Dagger"]
 mesh = SubResource("CapsuleMesh_nwwfe")
 skeleton = NodePath("../../..")
 
-[node name="WeaponCollision" type="CollisionShape3D" parent="WeaponPivot/Weapon"]
+[node name="WeaponCollision" type="CollisionShape3D" parent="WeaponPivot/Dagger"]
 transform = Transform3D(1, 0, 0, 0, 1, -2.9802322e-08, 0, 2.9802322e-08, 1, 0, 0.13330084, 0)
 shape = SubResource("CapsuleShape3D_uvnfx")
 disabled = true
 
-[node name="WeaponAnimPlayer" type="AnimationPlayer" parent="WeaponPivot/Weapon"]
+[node name="WeaponAnimPlayer" type="AnimationPlayer" parent="WeaponPivot/Dagger"]
 root_node = NodePath("../../..")
 libraries = {
 &"": SubResource("AnimationLibrary_xpcdj")
 }
 
-[node name="DragonMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.575, 0, 0, 0, -6.884544e-08, 1.575, 0, -1.575, -6.884544e-08, 0, 0, 0)
+[node name="Axe" type="Area3D" parent="WeaponPivot"]
 visible = false
-mesh = SubResource("CapsuleMesh_xpcdj")
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("2_a3d8c")
+metadata/_custom_type_script = "uid://48msrf4ft25n"
 
-[node name="GoblinMesh" type="MeshInstance3D" parent="."]
+[node name="WeaponCollision" type="CollisionShape3D" parent="WeaponPivot/Axe"]
+transform = Transform3D(1, 0, 0, 0, 0.68640286, 0.72722214, 0, -0.72722214, 0.68640286, 0.5360918, 0.7184103, -0.76113325)
+shape = SubResource("CapsuleShape3D_xpcdj")
+disabled = true
+
+[node name="WeaponAnimPlayer" type="AnimationPlayer" parent="WeaponPivot/Axe"]
+root_node = NodePath("../../..")
+libraries = {
+&"": SubResource("AnimationLibrary_jlvik")
+}
+
+[node name="WeaponMesh" type="MeshInstance3D" parent="WeaponPivot/Axe"]
+transform = Transform3D(1, 0, 0, 0, -1.769211, -0.5235051, 0, 2.201242, -0.4207583, 0.6305478, 0.8279861, -0.69188374)
+mesh = SubResource("CapsuleMesh_nwwfe")
+skeleton = NodePath("../../..")
+
+[node name="Masks" type="Node3D" parent="."]
+script = ExtResource("3_jlvik")
+
+[node name="Default" type="MeshInstance3D" parent="Masks" node_paths=PackedStringArray("dagger", "axe", "weapon_anim_plr")]
 visible = false
-mesh = SubResource("CapsuleMesh_mtuoh")
-skeleton = NodePath("../MinotaurMesh")
-
-[node name="MinotaurMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-visible = false
-mesh = SubResource("CapsuleMesh_a3d8c")
-
-[node name="WolfMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-visible = false
-mesh = SubResource("CapsuleMesh_htcer")
-
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+skeleton = NodePath("../..")
 script = ExtResource("3_mtuoh")
-initial_state = NodePath("PlayerDefault")
-metadata/_custom_type_script = "uid://dsixmcw8uyxke"
+dagger = NodePath("../../WeaponPivot/Dagger")
+axe = NodePath("../../WeaponPivot/Axe")
+weapon_anim_plr = NodePath("../../WeaponPivot/Dagger/WeaponAnimPlayer")
 
-[node name="PlayerDefault" type="Node" parent="StateMachine" node_paths=PackedStringArray("dragon_mesh", "goblin_mesh", "minotaur_mesh", "wolf_mesh")]
-script = ExtResource("4_htcer")
-dragon_mesh = NodePath("../../DragonMesh")
-goblin_mesh = NodePath("../../GoblinMesh")
-minotaur_mesh = NodePath("../../MinotaurMesh")
-wolf_mesh = NodePath("../../WolfMesh")
+[node name="Dragon" type="MeshInstance3D" parent="Masks" node_paths=PackedStringArray("dagger", "axe", "spawnpoint", "player", "timer")]
+transform = Transform3D(1.575, 0, 0, 0, -6.884544e-08, 1.575, 0, -1.575, -6.884544e-08, 0, 0.8304199, -0.6698421)
+visible = false
+mesh = SubResource("PrismMesh_xpcdj")
+skeleton = NodePath("../..")
+script = ExtResource("3_xpcdj")
+dagger = NodePath("../../WeaponPivot/Dagger")
+axe = NodePath("../../WeaponPivot/Axe")
+spawnpoint = NodePath("../../FireballSpawnpoint")
+player = NodePath("../..")
+timer = NodePath("Timer")
 
-[node name="PlayerDragon" type="Node" parent="StateMachine"]
-script = ExtResource("5_htcer")
+[node name="Timer" type="Timer" parent="Masks/Dragon"]
+wait_time = 0.3
 
-[node name="PlayerGoblin" type="Node" parent="StateMachine"]
-script = ExtResource("6_dd0ac")
+[node name="Goblin" type="MeshInstance3D" parent="Masks"]
+transform = Transform3D(1.575, 0, 0, 0, -6.884544e-08, 1.575, 0, -1.575, -6.884544e-08, 0, 0.8304199, -0.6698421)
+visible = false
+mesh = SubResource("PrismMesh_mtuoh")
+skeleton = NodePath("../..")
+script = ExtResource("5_dd0ac")
 
-[node name="PlayerMinotaur" type="Node" parent="StateMachine"]
-script = ExtResource("7_0u5uq")
+[node name="Minotaur" type="MeshInstance3D" parent="Masks" node_paths=PackedStringArray("dagger", "axe", "anim_player")]
+transform = Transform3D(1.575, 0, 0, 0, -6.884544e-08, 1.575, 0, -1.575, -6.884544e-08, 0, 0.8304199, -0.6698421)
+visible = false
+mesh = SubResource("PrismMesh_dd0ac")
+skeleton = NodePath("../..")
+script = ExtResource("6_jlvik")
+dagger = NodePath("../../WeaponPivot/Dagger")
+axe = NodePath("../../WeaponPivot/Axe")
+anim_player = NodePath("../../WeaponPivot/Axe/WeaponAnimPlayer")
 
-[node name="PlayerWolf" type="Node" parent="StateMachine"]
-script = ExtResource("8_jlvik")
+[node name="Wolf" type="MeshInstance3D" parent="Masks" node_paths=PackedStringArray("player")]
+transform = Transform3D(1.575, 0, 0, 0, -6.884544e-08, 1.575, 0, -1.575, -6.884544e-08, 0, 0.8304199, -0.6698421)
+visible = false
+mesh = SubResource("PrismMesh_jlvik")
+skeleton = NodePath("../..")
+script = ExtResource("6_0u5uq")
+player = NodePath("../..")
 
-[connection signal="body_entered" from="WeaponPivot/Weapon" to="WeaponPivot/Weapon" method="_on_body_entered"]
+[node name="Timer" type="Timer" parent="Masks/Wolf"]
+wait_time = 0.3
+
+[node name="Weapon" type="Area3D" parent="Masks/Wolf"]
+transform = Transform3D(1, 0, 0, 0, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, 0, -0.4256943, -0.47528487)
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("2_a3d8c")
+metadata/_custom_type_script = "uid://48msrf4ft25n"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Masks/Wolf/Weapon"]
+shape = SubResource("CylinderShape3D_jlvik")
+
+[node name="FireballSpawnpoint" type="Node3D" parent="."]
+
+[connection signal="body_entered" from="WeaponPivot/Dagger" to="WeaponPivot/Dagger" method="_on_body_entered"]
+[connection signal="body_entered" from="WeaponPivot/Axe" to="WeaponPivot/Axe" method="_on_body_entered"]
+[connection signal="timeout" from="Masks/Dragon/Timer" to="Masks/Dragon" method="_on_timer_timeout"]
+[connection signal="timeout" from="Masks/Wolf/Timer" to="Masks/Wolf" method="_on_timer_timeout"]

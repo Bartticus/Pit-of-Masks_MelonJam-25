@@ -24,4 +24,4 @@ func end_of_anim():
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body == Global.player:
-		Global.player.get_damage()
+		Global.player.die()
