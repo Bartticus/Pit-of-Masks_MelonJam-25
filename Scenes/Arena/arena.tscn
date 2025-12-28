@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://pi0a4eh85tu8"]
+[gd_scene load_steps=12 format=3 uid="uid://pi0a4eh85tu8"]
 
 [ext_resource type="PackedScene" uid="uid://bipe8iju31m6v" path="res://Scenes/Player/player.tscn" id="2_rm3sm"]
 [ext_resource type="Script" uid="uid://con6os5ranflg" path="res://Scenes/Arena/enemy_spawner.gd" id="3_t7yvt"]
 [ext_resource type="Script" uid="uid://xjy4xv8r2wew" path="res://Scripts/mount_camera.gd" id="4_rm3sm"]
 [ext_resource type="PackedScene" uid="uid://bvqc8fsyf2t5u" path="res://Scenes/Arena/colluseum_2.tscn" id="5_11not"]
 [ext_resource type="PackedScene" uid="uid://moswwloabatl" path="res://Scenes/RestartScreen/restart_screen.tscn" id="5_t7yvt"]
+[ext_resource type="AudioStream" uid="uid://sk5pmqb57rop" path="res://Audio/Arena Theme.mp3" id="6_11not"]
+[ext_resource type="Script" uid="uid://yoqxufgj3jef" path="res://Scenes/Arena/bg_music.gd" id="7_qnyor"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3vb8q"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -46,6 +48,18 @@ timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="EnemySpawner"]
 
+[node name="Marker3D" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 0)
+
+[node name="Marker3D2" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35)
+
+[node name="Marker3D3" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 0)
+
+[node name="Marker3D4" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35)
+
 [node name="Fireballs" type="Node" parent="."]
 
 [node name="Mount" type="Node3D" parent="."]
@@ -59,5 +73,12 @@ current = true
 visible = false
 
 [node name="Colosseum" parent="." instance=ExtResource("5_11not")]
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_11not")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+script = ExtResource("7_qnyor")
 
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_spawn_enemy"]

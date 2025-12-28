@@ -81,7 +81,7 @@ bottom_radius = 30.0
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="ColosseumMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(30, 0, 0, 0, 21.119999, 0, 0, 0, 30, 0, 19.393, 0)
+transform = Transform3D(30, 0, 0, 0, 21.119999, 0, 0, 0, 30, 0, 19.393, 0.24381065)
 mesh = SubResource("ArrayMesh_rm3sm")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_t7yvt")

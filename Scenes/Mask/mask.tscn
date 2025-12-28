@@ -120,7 +120,7 @@ visible = false
 mesh = SubResource("SphereMesh_vymxh")
 skeleton = NodePath("../..")
 
-[node name="BetterGoblinzMask" parent="MeshPivot" instance=ExtResource("3_7uu0t")]
+[node name="GoblinMask" parent="MeshPivot" instance=ExtResource("3_7uu0t")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

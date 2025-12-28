@@ -160,7 +160,7 @@ libraries = {
 }
 
 [node name="DragonMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.57, 0, 0, 0, -1.5604968e-07, 3.5700004, 0, -3.5700004, -1.5604968e-07, 0, 0, 0)
+transform = Transform3D(1.575, 0, 0, 0, -6.884544e-08, 1.575, 0, -1.575, -6.884544e-08, 0, 0, 0)
 visible = false
 mesh = SubResource("CapsuleMesh_xpcdj")
 

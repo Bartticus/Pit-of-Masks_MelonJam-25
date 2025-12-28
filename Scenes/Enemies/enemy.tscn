@@ -11,6 +11,7 @@ collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_dmwl5")
 mask_scene = ExtResource("2_d40jh")
+enemy_type = "Wolf"
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 

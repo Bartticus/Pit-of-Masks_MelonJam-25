@@ -7,8 +7,10 @@ var gravity: float = 9.8
 @export var accel: float = 2.0
 
 @export var current_mask: String = "Default"
+signal mask_changed
 
 @export var restart_screen: CanvasLayer
+signal player_died
 
 var dead = false
 
@@ -56,8 +58,11 @@ func player_look_at_cursor() -> void:
 	rotation.z = 0
 
 func equip_mask(mask_type: String) -> void:
-	$PlayerMesh.hide()
 	current_mask = mask_type
+	mask_changed.emit()
+	
+	$PlayerMesh.hide()
+	
 	
 	match mask_type:
 		"Dragon":
@@ -76,8 +81,10 @@ func equip_mask(mask_type: String) -> void:
 			$WolfMesh.show()
 			#wolf stuff
 			pass
-		
+
 func get_damage():
+	player_died.emit()
+	
 	dead = true
 	visible = false
 	restart_screen.visible = true
