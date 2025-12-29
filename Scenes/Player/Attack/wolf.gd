@@ -5,6 +5,7 @@ extends AttackSetup
 @onready var attack_timer = $AttackTimer
 @onready var area = $Weapon
 
+
 var dash_speed = 30
 var can_attack = true
 
@@ -23,6 +24,7 @@ func attack():
 		player.can_move = false
 		area.monitoring = true
 		timer.start()
+		player.collision_layer = 0b00 #Disable physics layer so he will not die
 
 func _physics_process(_delta: float) -> void:
 	if not player.can_move:
@@ -32,6 +34,7 @@ func _physics_process(_delta: float) -> void:
 func _on_timer_timeout() -> void:
 	area.monitoring = false
 	player.can_move = true
+	player.collision_layer = 0b10 #Enabling back player layer
 
 
 func _on_attack_timer_timeout() -> void:
