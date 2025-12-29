@@ -694,20 +694,21 @@ hit_flash_mesh = NodePath("Dragon/Dinobones/Skeleton3D/dinosorHitFlash")
 visible = false
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07644653, 0.7907715, -0.073625565)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07644653, 0.89723897, -0.073625565)
 shape = SubResource("BoxShape3D_eq8bp")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06410754, 0.82855225, 2.321599)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06410754, 0.9846778, 2.321599)
 shape = SubResource("BoxShape3D_ua7uq")
 
 [node name="StateMachine" parent="." index="4" node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("DragonMove")
 
-[node name="StateObject" type="Node" parent="StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+[node name="StateObject" type="Node" parent="StateMachine" index="0" node_paths=PackedStringArray("enemy", "anim_player")]
 script = ExtResource("2_eq8bp")
 speed = 75
 enemy = NodePath("../..")
+anim_player = NodePath("../../Dragon/AnimationPlayer")
 turn_speed = 0.005
 min_dot_product = 0.7
 

@@ -25,6 +25,7 @@ var can_move = true
 
 func _ready() -> void:
 	Global.player = self
+	Global.score = 0
 
 func _physics_process(_delta) -> void:
 	if dead:

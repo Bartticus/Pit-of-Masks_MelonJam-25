@@ -1,10 +1,13 @@
 extends State
 class_name DragonMove
 
-@export var so: Node
+@export var so: StateObject
 @export var distance_for_attack = 10
 
 func enter():
+	so.enemy.collision_mask = 0 #Stops the dragon from getting stuck in the doorway
+	await get_tree().create_timer(2).timeout
+	so.enemy.collision_mask = 1
 	pass
 func exit():
 	pass

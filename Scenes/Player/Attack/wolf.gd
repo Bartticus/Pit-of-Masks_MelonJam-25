@@ -1,15 +1,24 @@
 extends AttackSetup
 
-@export var player: Node3D
+@export var player: Player
 @onready var timer = $Timer
+@onready var attack_timer = $AttackTimer
 @onready var area = $Weapon
 
 var dash_speed = 30
+var can_attack = true
 
 func setup():
 	masks_node.setup()
 
+	player.turn_speed = 0.5
+	player.speed = 30
+
 func attack():
+	if not can_attack: return
+	can_attack = false
+	attack_timer.start()
+	
 	if player.can_move:
 		player.can_move = false
 		area.monitoring = true
@@ -23,3 +32,7 @@ func _physics_process(_delta: float) -> void:
 func _on_timer_timeout() -> void:
 	area.monitoring = false
 	player.can_move = true
+
+
+func _on_attack_timer_timeout() -> void:
+	can_attack = true

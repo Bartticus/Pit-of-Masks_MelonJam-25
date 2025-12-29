@@ -778,7 +778,7 @@ radius = 0.1
 height = 1.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvnfx"]
-radius = 0.27392578
+radius = 0.53125
 height = 1.6269531
 
 [sub_resource type="Animation" id="Animation_a3d8c"]
@@ -1214,13 +1214,14 @@ skeleton = NodePath("../../..")
 [node name="Masks" type="Node3D" parent="."]
 script = ExtResource("3_jlvik")
 
-[node name="Default" type="MeshInstance3D" parent="Masks" node_paths=PackedStringArray("dagger", "axe", "weapon_anim_plr")]
+[node name="Default" type="MeshInstance3D" parent="Masks" node_paths=PackedStringArray("dagger", "axe", "weapon_anim_plr", "player")]
 visible = false
 skeleton = NodePath("../..")
 script = ExtResource("3_mtuoh")
 dagger = NodePath("../../WeaponPivot/Dagger")
 axe = NodePath("../../WeaponPivot/Axe")
 weapon_anim_plr = NodePath("../../WeaponPivot/Dagger/WeaponAnimPlayer")
+player = NodePath("../..")
 
 [node name="Dragon" type="MeshInstance3D" parent="Masks" node_paths=PackedStringArray("dagger", "axe", "spawnpoint", "player", "timer")]
 transform = Transform3D(-0.235, 0, -2.0544352e-08, 0, 0.235, 0, 2.0544352e-08, 0, -0.235, 0, 0.8786837, -0.38278547)
@@ -1234,12 +1235,12 @@ player = NodePath("../..")
 timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="Masks/Dragon"]
-wait_time = 0.3
+wait_time = 0.1
 
 [node name="DragonMask" parent="Masks/Dragon" instance=ExtResource("7_06tpx")]
 transform = Transform3D(1.19, 2.3474884e-08, 2.6832012e-09, -2.3474895e-08, 1.1593084, 0.2685214, 2.6830733e-09, -0.2685214, 1.1593084, -1.1375647e-09, 0.51557255, 0.16842008)
 
-[node name="Goblin" type="MeshInstance3D" parent="Masks" node_paths=PackedStringArray("dagger", "axe", "weapon_anim_plr")]
+[node name="Goblin" type="MeshInstance3D" parent="Masks" node_paths=PackedStringArray("dagger", "axe", "weapon_anim_plr", "player")]
 transform = Transform3D(1.575, 0, 0, 0, -6.884544e-08, 1.575, 0, -1.575, -6.884544e-08, 0, 0.8304199, -0.6698421)
 visible = false
 skeleton = NodePath("../..")
@@ -1247,11 +1248,12 @@ script = ExtResource("5_dd0ac")
 dagger = NodePath("../../WeaponPivot/Dagger")
 axe = NodePath("../../WeaponPivot/Axe")
 weapon_anim_plr = NodePath("../../WeaponPivot/Dagger/WeaponAnimPlayer")
+player = NodePath("../..")
 
 [node name="GoblinMask" parent="Masks/Goblin" instance=ExtResource("9_7g0yx")]
 transform = Transform3D(-0.115, -1.7364513e-08, -1.0168086e-15, 6.5593375e-09, -0.04344054, 0.106479645, -1.6077978e-08, 0.106479645, 0.04344054, -7.568843e-08, -0.3547741, -0.020902514)
 
-[node name="Minotaur" type="MeshInstance3D" parent="Masks" node_paths=PackedStringArray("dagger", "axe", "anim_player")]
+[node name="Minotaur" type="MeshInstance3D" parent="Masks" node_paths=PackedStringArray("dagger", "axe", "anim_player", "player")]
 transform = Transform3D(-0.22, 0, -1.9233012e-08, 0, 0.22, 0, 1.9233012e-08, 0, -0.22, -2.3841858e-07, 0.62846905, 0.15884005)
 visible = false
 skeleton = NodePath("../..")
@@ -1259,6 +1261,7 @@ script = ExtResource("6_jlvik")
 dagger = NodePath("../../WeaponPivot/Dagger")
 axe = NodePath("../../WeaponPivot/Axe")
 anim_player = NodePath("../../WeaponPivot/Axe/WeaponAnimPlayer")
+player = NodePath("../..")
 
 [node name="MinotaurMask" parent="Masks/Minotaur" instance=ExtResource("11_dey5f")]
 transform = Transform3D(1, 2.2274243e-08, 2.8851985e-09, -2.2274241e-08, 0.966997, 0.2547876, 2.8852227e-09, -0.2547876, 0.966997, 0, 0, 0)
@@ -1276,6 +1279,9 @@ transform = Transform3D(-0.38000003, -5.7378415e-08, -2.5080902e-15, 1.7882273e-
 
 [node name="Timer" type="Timer" parent="Masks/Wolf"]
 wait_time = 0.25
+
+[node name="AttackTimer" type="Timer" parent="Masks/Wolf"]
+wait_time = 0.5
 
 [node name="Weapon" type="Area3D" parent="Masks/Wolf"]
 transform = Transform3D(1, 0, 0, 0, 1, -7.1054274e-15, 0, 7.1054274e-15, 1, 0, -0.4256943, -0.47528487)
@@ -1295,4 +1301,5 @@ shape = SubResource("CylinderShape3D_jlvik")
 [connection signal="body_entered" from="WeaponPivot/Axe" to="WeaponPivot/Axe" method="_on_body_entered"]
 [connection signal="timeout" from="Masks/Dragon/Timer" to="Masks/Dragon" method="_on_timer_timeout"]
 [connection signal="timeout" from="Masks/Wolf/Timer" to="Masks/Wolf" method="_on_timer_timeout"]
+[connection signal="timeout" from="Masks/Wolf/AttackTimer" to="Masks/Wolf" method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="Masks/Wolf/Weapon" to="Masks/Wolf/Weapon" method="_on_body_entered"]
