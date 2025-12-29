@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bigdgogdou3vp"]
+[gd_scene load_steps=18 format=4 uid="uid://bigdgogdou3vp"]
 
 [ext_resource type="PackedScene" uid="uid://qrp2qrl5esb7" path="res://Scenes/Enemies/enemy.tscn" id="1_l12nm"]
 [ext_resource type="Script" uid="uid://c3yi675gd5wl0" path="res://Scenes/Enemies/state_object.gd" id="2_eq8bp"]
@@ -7,7 +7,10 @@
 [ext_resource type="Script" uid="uid://w6gin5lq6f8g" path="res://Scenes/Enemies/Dragon/dragon_attack.gd" id="4_5jf6k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eq8bp"]
-size = Vector3(2.3505268, 2.5059814, 2.697609)
+size = Vector3(2.3505268, 2.5059814, 2.1368904)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ua7uq"]
+size = Vector3(1.0193334, 2.5059814, 2.5347538)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mt0t2"]
 resource_name = "Material.008"
@@ -688,12 +691,12 @@ enemy_mask = ExtResource("2_ua7uq")
 visible = false
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07644653, 0.7907715, -0.35398483)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07644653, 0.7907715, -0.073625565)
 shape = SubResource("BoxShape3D_eq8bp")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024004102, 0.82855225, 2.5205307)
-shape = SubResource("BoxShape3D_eq8bp")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06410754, 0.82855225, 2.321599)
+shape = SubResource("BoxShape3D_ua7uq")
 
 [node name="StateMachine" parent="." index="4" node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("DragonMove")

@@ -86,7 +86,7 @@ text = "Return"
 
 [node name="ThemeMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_0l8wx")
-volume_db = -10.0
+volume_db = -12.0
 autoplay = true
 script = ExtResource("2_adu2g")
 next_song = ExtResource("4_n5jej")

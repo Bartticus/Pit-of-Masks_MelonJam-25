@@ -100,6 +100,10 @@ func _input(event: InputEvent) -> void:
 func die():
 	player_died.emit()
 	
+	var camera: MainCamera = get_viewport().get_camera_3d()
+	camera.screen_shake(5,10)
+	
+	collision_layer = 0
 	dead = true
 	visible = false
 	restart_screen.visible = true
