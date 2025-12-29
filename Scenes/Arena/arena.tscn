@@ -69,6 +69,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0)
 [node name="Fireballs" type="Node" parent="."]
 
 [node name="Mount" type="Node3D" parent="."]
+process_mode = 3
 script = ExtResource("4_rm3sm")
 
 [node name="Camera3D" type="Camera3D" parent="Mount"]
@@ -94,6 +95,7 @@ text = "Your score is: "
 transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, 0, 0, 0)
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("6_0ibrr")
 volume_db = -10.0
 autoplay = true

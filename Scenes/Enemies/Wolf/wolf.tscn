@@ -739,6 +739,7 @@ speed = 400
 enemy = NodePath("../..")
 anim_player = NodePath("../../AnimationPlayer")
 turn_speed = 0.05
+min_dot_product = 0.95
 
 [node name="WolfWalk" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("so")]
 script = ExtResource("3_se4m8")

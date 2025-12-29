@@ -17,17 +17,21 @@ const ENEMIES = [
 
 func _ready() -> void:
 	timer.wait_time = curve.sample(0)
-	timer.start(1)
+	timer.start(number_of_enemy / 4.0)
 
 func _spawn_enemy():
-	var index = randi_range(0, 3)
+	#var index = randi_range(0, 3)
 	#var pos = Vector3.RIGHT * distance_from_center
 	#pos = pos.rotated(Vector3.UP, randi_range(0, 3) * PI/2)
-	var pos = spawn_points.pick_random().global_position
-	var temp = ENEMIES[index].instantiate()
-	temp.position = pos
-	add_child(temp)
-	temp.look_at(Vector3(0,2,0))
+	for i in number_of_enemy:
+		randomize()
+		var pos = spawn_points.pick_random().global_position
+		var temp = ENEMIES.pick_random().instantiate()
+		temp.position = pos
+		add_child(temp)
+		temp.look_at(Vector3(0,2,0))
+		
+		await get_tree().create_timer(0.1).timeout #Space out spawns a bit
 	
 	number_of_enemy += 1
 	timer.wait_time = curve.sample(number_of_enemy)

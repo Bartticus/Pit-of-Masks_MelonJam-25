@@ -4,7 +4,7 @@ extends CharacterBody3D
 @export var mask_scene: PackedScene
 @export var enemy_type: String
 @export var enemy_mask: PackedScene
-
+var hitstun_duration: float = 0.1
 
 func _physics_process(_delta: float) -> void:
 	pass
@@ -19,8 +19,14 @@ func die() -> void:
 	mask.get_node("MeshPivot").add_child(mesh_mask)
 	add_sibling(mask)
 	
+	#camera shake
 	var camera: MainCamera = get_viewport().get_camera_3d()
 	camera.screen_shake(1,2)
+	
+	#hitstun
+	get_tree().paused = true
+	await get_tree().create_timer(hitstun_duration).timeout
+	get_tree().paused = false
 	
 	Global.score += 1
 	

@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody3D
 
+@export var anim_player: AnimationPlayer
 @export var weapon_anim_plr: AnimationPlayer
 
 var movement_vector := Vector3.ZERO
@@ -46,6 +47,11 @@ func handle_movement() -> void:
 	movement_vector = movement_vector.move_toward(horizontal_input, accel)
 	if not is_on_floor(): #Keep player grounded
 		movement_vector.y -= gravity
+	
+	if movement_vector:
+		anim_player.play("Walk")
+	else:
+		anim_player.play("RESET")
 	
 	move_and_slide()
 
@@ -100,6 +106,7 @@ func _input(event: InputEvent) -> void:
 func die():
 	player_died.emit()
 	
+	#camera shake
 	var camera: MainCamera = get_viewport().get_camera_3d()
 	camera.screen_shake(5,10)
 	
