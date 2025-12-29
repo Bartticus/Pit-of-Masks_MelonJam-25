@@ -14,10 +14,13 @@
 [ext_resource type="PackedScene" uid="uid://bx5pitfqjn3v" path="res://Assets/Models/WolfMask.glb" id="13_06tpx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vb8q"]
+radius = 0.4086914
+height = 2.2573242
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dg404"]
 resource_name = "Material.001"
 cull_mode = 2
+albedo_color = Color(1, 0.8745098, 0.70980394, 1)
 metallic = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pak6x"]
@@ -932,6 +935,7 @@ anim_player = NodePath("RealPlayerMesh/AnimationPlayer")
 weapon_anim_plr = NodePath("WeaponPivot/Dagger/WeaponAnimPlayer")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12866211, 0)
 shape = SubResource("CapsuleShape3D_3vb8q")
 
 [node name="RealPlayerMesh" type="Node3D" parent="."]

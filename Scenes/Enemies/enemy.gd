@@ -4,6 +4,8 @@ extends CharacterBody3D
 @export var mask_scene: PackedScene
 @export var enemy_type: String
 @export var enemy_mask: PackedScene
+@export var default_mesh: MeshInstance3D
+@export var hit_flash_mesh: MeshInstance3D
 var hitstun_duration: float = 0.1
 
 func _physics_process(_delta: float) -> void:
@@ -11,6 +13,8 @@ func _physics_process(_delta: float) -> void:
 
 func die() -> void:
 	#death animation
+	default_mesh.hide()
+	hit_flash_mesh.show()
 	#drop mask
 	var mask = mask_scene.instantiate() as Mask
 	mask.spawn_point = global_position

@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=4 uid="uid://bigdgogdou3vp"]
+[gd_scene load_steps=19 format=4 uid="uid://bigdgogdou3vp"]
 
 [ext_resource type="PackedScene" uid="uid://qrp2qrl5esb7" path="res://Scenes/Enemies/enemy.tscn" id="1_l12nm"]
 [ext_resource type="Script" uid="uid://c3yi675gd5wl0" path="res://Scenes/Enemies/state_object.gd" id="2_eq8bp"]
 [ext_resource type="PackedScene" uid="uid://strfdhv6f26f" path="res://Scenes/Enemies/Dragon/dragon_mask.tscn" id="2_ua7uq"]
 [ext_resource type="Script" uid="uid://d3lafbojhaifj" path="res://Scenes/Enemies/Dragon/dragon_move.gd" id="3_ua7uq"]
 [ext_resource type="Script" uid="uid://w6gin5lq6f8g" path="res://Scenes/Enemies/Dragon/dragon_attack.gd" id="4_5jf6k"]
+[ext_resource type="Material" uid="uid://cekqgom6kwllj" path="res://Scenes/Enemies/hit_flash.tres" id="6_ua7uq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eq8bp"]
 size = Vector3(2.3505268, 2.5059814, 2.1368904)
@@ -682,10 +683,12 @@ _data = {
 &"Walk ": SubResource("Animation_4uh6m")
 }
 
-[node name="Dragon" instance=ExtResource("1_l12nm")]
+[node name="Dragon" node_paths=PackedStringArray("default_mesh", "hit_flash_mesh") instance=ExtResource("1_l12nm")]
 collision_mask = 1
 enemy_type = "Dragon"
 enemy_mask = ExtResource("2_ua7uq")
+default_mesh = NodePath("Dragon/Dinobones/Skeleton3D/dinosor")
+hit_flash_mesh = NodePath("Dragon/Dinobones/Skeleton3D/dinosorHitFlash")
 
 [node name="CSGBox3D" parent="." index="0"]
 visible = false
@@ -711,12 +714,14 @@ min_dot_product = 0.7
 [node name="DragonMove" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("so")]
 script = ExtResource("3_ua7uq")
 so = NodePath("../StateObject")
+distance_for_attack = 20
 metadata/_custom_type_script = "uid://d3lafbojhaifj"
 
-[node name="DragonAttack" type="Node" parent="StateMachine" index="2" node_paths=PackedStringArray("so", "spawpoint")]
+[node name="DragonAttack" type="Node" parent="StateMachine" index="2" node_paths=PackedStringArray("so", "spawnpoint")]
 script = ExtResource("4_5jf6k")
 so = NodePath("../StateObject")
-spawpoint = NodePath("../../Spawnpoint")
+distance_for_walk = 20.0
+spawnpoint = NodePath("../../Spawnpoint")
 metadata/_custom_type_script = "uid://w6gin5lq6f8g"
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." index="5"]
@@ -906,6 +911,15 @@ bones/23/scale = Vector3(1, 1.0000001, 1.0000001)
 [node name="dinosor" type="MeshInstance3D" parent="Dragon/Dinobones/Skeleton3D" index="0"]
 mesh = SubResource("ArrayMesh_xb05l")
 skin = SubResource("Skin_2o4lv")
+
+[node name="dinosorHitFlash" type="MeshInstance3D" parent="Dragon/Dinobones/Skeleton3D" index="1"]
+visible = false
+mesh = SubResource("ArrayMesh_xb05l")
+skin = SubResource("Skin_2o4lv")
+surface_material_override/0 = ExtResource("6_ua7uq")
+surface_material_override/1 = ExtResource("6_ua7uq")
+surface_material_override/2 = ExtResource("6_ua7uq")
+surface_material_override/3 = ExtResource("6_ua7uq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Dragon" index="1"]
 libraries = {

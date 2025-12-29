@@ -17,7 +17,7 @@ const ENEMIES = [
 
 func _ready() -> void:
 	timer.wait_time = curve.sample(0)
-	timer.start(number_of_enemy / 4.0)
+	timer.start(1)
 
 func _spawn_enemy():
 	#var index = randi_range(0, 3)
@@ -34,4 +34,4 @@ func _spawn_enemy():
 		await get_tree().create_timer(0.1).timeout #Space out spawns a bit
 	
 	number_of_enemy += 1
-	timer.wait_time = curve.sample(number_of_enemy)
+	timer.wait_time = curve.sample(number_of_enemy / 4.0)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=4 uid="uid://bdnyc3xaifmi6"]
+[gd_scene load_steps=18 format=4 uid="uid://bdnyc3xaifmi6"]
 
 [ext_resource type="PackedScene" uid="uid://qrp2qrl5esb7" path="res://Scenes/Enemies/enemy.tscn" id="1_tyws3"]
 [ext_resource type="Script" uid="uid://c3yi675gd5wl0" path="res://Scenes/Enemies/state_object.gd" id="2_aln4i"]
 [ext_resource type="PackedScene" uid="uid://dm687n8glgkah" path="res://Scenes/Enemies/Wolf/wolf_mask.tscn" id="2_ppwi1"]
 [ext_resource type="Script" uid="uid://dkymhfy8efj85" path="res://Scenes/Enemies/Wolf/wolf_walk.gd" id="3_se4m8"]
 [ext_resource type="Script" uid="uid://bg1by12crfox6" path="res://Scenes/Enemies/Wolf/wolf_attack.gd" id="4_fij6b"]
+[ext_resource type="Material" uid="uid://cekqgom6kwllj" path="res://Scenes/Enemies/hit_flash.tres" id="6_n0nux"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ppwi1"]
 size = Vector3(1, 2.581543, 2.559082)
@@ -719,9 +720,11 @@ _data = {
 &"Walk": SubResource("Animation_kv58p")
 }
 
-[node name="Wolf" instance=ExtResource("1_tyws3")]
+[node name="Wolf" node_paths=PackedStringArray("default_mesh", "hit_flash_mesh") instance=ExtResource("1_tyws3")]
 collision_mask = 1
 enemy_mask = ExtResource("2_ppwi1")
+default_mesh = NodePath("Wolf2/LoupOs/Skeleton3D/Loup")
+hit_flash_mesh = NodePath("Wolf2/LoupOs/Skeleton3D/LoupHitFlash")
 
 [node name="CSGBox3D" parent="." index="0"]
 visible = false
@@ -999,6 +1002,15 @@ bones/31/scale = Vector3(1, 1, 1)
 [node name="Loup" type="MeshInstance3D" parent="Wolf2/LoupOs/Skeleton3D" index="0"]
 mesh = SubResource("ArrayMesh_pkmlr")
 skin = SubResource("Skin_u3dlj")
+
+[node name="LoupHitFlash" type="MeshInstance3D" parent="Wolf2/LoupOs/Skeleton3D" index="1"]
+visible = false
+mesh = SubResource("ArrayMesh_pkmlr")
+skin = SubResource("Skin_u3dlj")
+surface_material_override/0 = ExtResource("6_n0nux")
+surface_material_override/1 = ExtResource("6_n0nux")
+surface_material_override/2 = ExtResource("6_n0nux")
+surface_material_override/3 = ExtResource("6_n0nux")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Wolf2" index="1"]
 libraries = {

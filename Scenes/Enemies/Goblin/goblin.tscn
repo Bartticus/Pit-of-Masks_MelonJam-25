@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=4 uid="uid://c175qc057mbv2"]
+[gd_scene load_steps=20 format=4 uid="uid://c175qc057mbv2"]
 
 [ext_resource type="PackedScene" uid="uid://qrp2qrl5esb7" path="res://Scenes/Enemies/enemy.tscn" id="1_xpyb8"]
 [ext_resource type="PackedScene" uid="uid://8gu5pyi12tqk" path="res://Scenes/Enemies/Goblin/goblin_mask.tscn" id="3_xpmg4"]
 [ext_resource type="Script" uid="uid://c3yi675gd5wl0" path="res://Scenes/Enemies/state_object.gd" id="4_v3txi"]
 [ext_resource type="Script" uid="uid://cjvheifmiqr8l" path="res://Scenes/Enemies/Goblin/goblin_move.gd" id="5_xpyb8"]
 [ext_resource type="Script" uid="uid://7ta1gdna2rmy" path="res://Scenes/Enemies/Goblin/goblin_attack.gd" id="6_u8yfu"]
+[ext_resource type="Material" uid="uid://cekqgom6kwllj" path="res://Scenes/Enemies/hit_flash.tres" id="6_xpmg4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xpyb8"]
 size = Vector3(1, 2.581543, 1)
@@ -511,10 +512,12 @@ _data = {
 radius = 0.22167969
 height = 0.9699707
 
-[node name="Goblin" instance=ExtResource("1_xpyb8")]
+[node name="Goblin" node_paths=PackedStringArray("default_mesh", "hit_flash_mesh") instance=ExtResource("1_xpyb8")]
 collision_mask = 1
 enemy_type = "Goblin"
 enemy_mask = ExtResource("3_xpmg4")
+default_mesh = NodePath("Goblin/Armature/Skeleton3D/Sphere_021")
+hit_flash_mesh = NodePath("Goblin/Armature/Skeleton3D/Sphere_022HitFlash")
 
 [node name="CSGBox3D" parent="." index="0"]
 visible = false
@@ -647,6 +650,17 @@ bones/12/scale = Vector3(1, 1, 1)
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 4.241805, 0)
 mesh = SubResource("ArrayMesh_k5joj")
 skin = SubResource("Skin_ir108")
+
+[node name="Sphere_022HitFlash" type="MeshInstance3D" parent="Goblin/Armature/Skeleton3D" index="1"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 4.241805, 0)
+visible = false
+mesh = SubResource("ArrayMesh_k5joj")
+skin = SubResource("Skin_ir108")
+surface_material_override/0 = ExtResource("6_xpmg4")
+surface_material_override/1 = ExtResource("6_xpmg4")
+surface_material_override/2 = ExtResource("6_xpmg4")
+surface_material_override/3 = ExtResource("6_xpmg4")
+surface_material_override/4 = ExtResource("6_xpmg4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Goblin" index="1"]
 libraries = {
