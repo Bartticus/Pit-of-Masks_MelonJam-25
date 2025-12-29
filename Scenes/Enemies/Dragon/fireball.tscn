@@ -7,6 +7,7 @@ resource_local_to_scene = true
 albedo_color = Color(1, 0.13725491, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_8uxct"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_f60q1")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8uxct"]

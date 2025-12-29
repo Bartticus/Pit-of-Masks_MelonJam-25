@@ -22,8 +22,8 @@ func attack():
 		temp.position = spawnpoint.global_position
 		temp.rotation.y = player.rotation.y
 		
-		var sphere: CSGSphere3D = temp.get_node("CSGSphere3D")
-		sphere.material.albedo_color = Color.YELLOW
+		var sphere: MeshInstance3D = temp.get_node("MeshInstance3D")
+		sphere.mesh.material.albedo_color = Color.YELLOW
 		var light: OmniLight3D = temp.get_node("OmniLight3D")
 		light.light_color = Color.YELLOW
 		
